@@ -1,0 +1,5 @@
+{
+  "name": "Linear Algebra Visualizer",
+  "description": "An interactive educational tool for Linear Algebra 1, focusing on geometric intuition of matrices, eigenvalues, and basis changes.",
+  "requestFramePermissions": []
+}

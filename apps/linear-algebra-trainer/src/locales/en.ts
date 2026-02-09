@@ -1,0 +1,58 @@
+export const en = {
+  'app.title': 'Linear Algebra Trainer',
+  'app.description': 'Master Gaussian Elimination and Finite Fields through practice.',
+  'home.phase1Status': 'Phase 1: Core Logic Implementation',
+  'home.intro': 'Select a module below to start practicing.',
+  'home.welcome': 'Welcome to Linear Algebra Trainer',
+  'home.gaussDesc': 'Practice Gaussian Elimination. Transform matrices to row echelon form using elementary row operations.',
+  'home.finiteDesc': 'Explore modular arithmetic. Perform addition, subtraction, multiplication, and division in finite fields (ℤ/pℤ).',
+  'home.startGauss': 'Start Gauss Trainer',
+  'home.startFinite': 'Start Finite Field Calc',
+  
+  // Navigation
+  'nav.home': 'Home',
+  'nav.gauss': 'Gauss Trainer',
+  'nav.finiteField': 'Finite Fields (Mod p)',
+
+  // Trainer
+  'trainer.title': 'Gauss Elimination Trainer',
+  'trainer.subtitle': 'Transform the matrix to Identity Matrix',
+  'trainer.solved': '🎉 Solved! The matrix is in Identity form.',
+  'trainer.reset': 'New Problem',
+  'trainer.undo': 'Undo',
+  'trainer.redo': 'Redo',
+  
+  // Controls
+  'controls.operation': 'Operation',
+  'controls.swap': 'Swap Rows',
+  'controls.scale': 'Scale Row',
+  'controls.add': 'Add Row',
+  'controls.row': 'Row',
+  'controls.row1': 'Row 1',
+  'controls.row2': 'Row 2',
+  'controls.source': 'Source',
+  'controls.target': 'Target',
+  'controls.factor': 'Factor (k)',
+  'controls.apply': 'Apply Operation',
+  'controls.invalidFactor': 'Invalid number',
+  'controls.zeroFactor': 'Cannot be 0',
+
+  // Finite Field
+  'ff.title': 'Finite Field Calculator',
+  'ff.subtitle': 'Explore arithmetic in ℤ/pℤ',
+  'ff.modulus': 'Modulus (p)',
+  'ff.calc.title': 'Calculator',
+  'ff.calc.a': 'A',
+  'ff.calc.b': 'B',
+  'ff.calc.res': 'Result',
+  'ff.grid.title': 'Multiplication Table',
+  'ff.step.add': 'Calculate sum:',
+  'ff.step.sub': 'Calculate difference:',
+  'ff.step.mul': 'Calculate product:',
+  'ff.step.div': 'Calculate division:',
+  'ff.step.inv': 'Find modular inverse:',
+  'ff.step.gcd': 'GCD check:',
+  'ff.error.noInverse': 'No inverse exists (GCD ≠ 1)',
+  'ff.error.divZero': 'Cannot divide by zero',
+  'ff.placeholder.mod': 'e.g. 7',
+};

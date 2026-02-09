@@ -1,0 +1,58 @@
+export const de = {
+  'app.title': 'Lineare Algebra Trainer',
+  'app.description': 'Meistere Gauß-Elimination und Endliche Körper durch Übung.',
+  'home.phase1Status': 'Phase 1: Implementierung der Kernlogik',
+  'home.intro': 'Wähle ein Modul aus, um mit dem Üben zu beginnen.',
+  'home.welcome': 'Willkommen beim Lineare Algebra Trainer',
+  'home.gaussDesc': 'Übe die Gauß-Elimination. Transformiere Matrizen mit elementaren Zeilenoperationen in Zeilenstufenform.',
+  'home.finiteDesc': 'Erkunde modulare Arithmetik. Führe Addition, Subtraktion, Multiplikation und Division in endlichen Körpern (ℤ/pℤ) durch.',
+  'home.startGauss': 'Starte Gauß Trainer',
+  'home.startFinite': 'Starte Endliche Körper',
+
+  // Navigation
+  'nav.home': 'Start',
+  'nav.gauss': 'Gauß Trainer',
+  'nav.finiteField': 'Endliche Körper (Mod p)',
+
+  // Trainer
+  'trainer.title': 'Gauß-Elimination Trainer',
+  'trainer.subtitle': 'Transformiere die Matrix zur Einheitsmatrix',
+  'trainer.solved': '🎉 Gelöst! Die Matrix ist eine Einheitsmatrix.',
+  'trainer.reset': 'Neues Problem',
+  'trainer.undo': 'Rückgängig',
+  'trainer.redo': 'Wiederherstellen',
+  
+  // Controls
+  'controls.operation': 'Operation',
+  'controls.swap': 'Zeilen tauschen',
+  'controls.scale': 'Zeile skalieren',
+  'controls.add': 'Zeile addieren',
+  'controls.row': 'Zeile',
+  'controls.row1': 'Zeile 1',
+  'controls.row2': 'Zeile 2',
+  'controls.source': 'Quelle',
+  'controls.target': 'Ziel',
+  'controls.factor': 'Faktor (k)',
+  'controls.apply': 'Anwenden',
+  'controls.invalidFactor': 'Ungültige Zahl',
+  'controls.zeroFactor': 'Darf nicht 0 sein',
+
+  // Finite Field
+  'ff.title': 'Endliche Körper Rechner',
+  'ff.subtitle': 'Erkunde Arithmetik in ℤ/pℤ',
+  'ff.modulus': 'Modul (p)',
+  'ff.calc.title': 'Rechner',
+  'ff.calc.a': 'A',
+  'ff.calc.b': 'B',
+  'ff.calc.res': 'Ergebnis',
+  'ff.grid.title': 'Multiplikationstabelle',
+  'ff.step.add': 'Berechne Summe:',
+  'ff.step.sub': 'Berechne Differenz:',
+  'ff.step.mul': 'Berechne Produkt:',
+  'ff.step.div': 'Berechne Division:',
+  'ff.step.inv': 'Finde modulares Inverses:',
+  'ff.step.gcd': 'GGT Prüfung:',
+  'ff.error.noInverse': 'Kein Inverses (GGT ≠ 1)',
+  'ff.error.divZero': 'Division durch Null unmöglich',
+  'ff.placeholder.mod': 'z.B. 7',
+};

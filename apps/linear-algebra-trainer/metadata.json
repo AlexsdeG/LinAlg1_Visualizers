@@ -1,0 +1,5 @@
+{
+  "name": "Linear Algebra Trainer",
+  "description": "A drill-and-practice web application for Linear Algebra algorithmic skills, focusing on Gaussian Elimination and Finite Fields.",
+  "requestFramePermissions": []
+}
