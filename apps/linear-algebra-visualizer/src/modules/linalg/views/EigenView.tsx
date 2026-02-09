@@ -58,8 +58,9 @@ export const EigenView: React.FC<EigenViewProps> = ({ matrix }) => {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="mb-4 flex flex-wrap items-center gap-4 p-2 bg-gray-50 dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">
+    <div className="flex flex-col space-y-6">
+      {/* Controls Bar */}
+      <div className="flex flex-wrap items-center gap-4 p-2 bg-gray-50 dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">
         <label className="flex items-center space-x-2 text-sm font-medium cursor-pointer">
           <input 
             type="checkbox" 
@@ -88,7 +89,8 @@ export const EigenView: React.FC<EigenViewProps> = ({ matrix }) => {
         )}
       </div>
 
-      <div className="w-full h-[500px] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-gray-50 dark:bg-black relative">
+      {/* Visualization */}
+      <div className="w-full h-[500px] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-gray-50 dark:bg-black relative shadow-inner">
         <Mafs
           zoom={{ min: 0.1, max: 5 }}
           pan={true}
@@ -133,7 +135,7 @@ export const EigenView: React.FC<EigenViewProps> = ({ matrix }) => {
             color={isAligned ? Theme.yellow : Theme.blue}
             weight={3}
           />
-          <Text x={inputVector.x * 1.1} y={inputVector.y * 1.1} attach="n" color={Theme.blue}>
+          <Text x={inputVector.x * 1.1} y={inputVector.y * 1.1} attach="n" color={Theme.blue} svgTextProps={{fontWeight: 'bold'}}>
             v
           </Text>
 
@@ -151,7 +153,7 @@ export const EigenView: React.FC<EigenViewProps> = ({ matrix }) => {
             color={isAligned ? Theme.yellow : Theme.red}
             weight={3}
           />
-          <Text x={outputVector.x} y={outputVector.y} attach="s" color={Theme.red}>
+          <Text x={outputVector.x} y={outputVector.y} attach="s" color={Theme.red} svgTextProps={{fontWeight: 'bold'}}>
             Av
           </Text>
 
@@ -164,6 +166,59 @@ export const EigenView: React.FC<EigenViewProps> = ({ matrix }) => {
              <li>Watch the <span className="text-red-500 font-bold">Red Arrow (Av)</span>.</li>
              <li>Align them to find Eigenvectors!</li>
            </ul>
+        </div>
+      </div>
+
+       {/* Educational Cards */}
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Analysis Card */}
+        <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-lg p-4">
+          <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.analysis')}
+          </h4>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {isAligned 
+              ? t('eigen.analysis.aligned', { lambda: currentLambda.toFixed(2) })
+              : t('eigen.analysis.notAligned')
+            }
+          </p>
+        </div>
+
+        {/* Calculation Card */}
+        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+          <h4 className="font-bold text-gray-600 dark:text-gray-400 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.calculation')}
+          </h4>
+          <p className="text-xs text-gray-500 mb-1">{t('eigen.calc.title')}</p>
+          <div className="font-mono text-sm bg-white dark:bg-black p-2 rounded border border-gray-100 dark:border-gray-800 flex items-center justify-center space-x-2 overflow-x-auto">
+             {/* Matrix A */}
+             <div className="grid grid-cols-2 gap-x-2 text-center border-l border-r border-gray-400 px-1">
+                <span>{matrix.ix.toFixed(1)}</span><span>{matrix.jx.toFixed(1)}</span>
+                <span>{matrix.iy.toFixed(1)}</span><span>{matrix.jy.toFixed(1)}</span>
+             </div>
+             <span>·</span>
+             {/* Vector v */}
+             <div className="grid grid-rows-2 text-center border-l border-r border-blue-400 px-1 text-blue-600">
+                <span>{inputVector.x.toFixed(1)}</span>
+                <span>{inputVector.y.toFixed(1)}</span>
+             </div>
+             <span>=</span>
+             {/* Vector w */}
+             <div className="grid grid-rows-2 text-center border-l border-r border-red-400 px-1 text-red-600 font-bold">
+                <span>{outputVector.x.toFixed(1)}</span>
+                <span>{outputVector.y.toFixed(1)}</span>
+             </div>
+          </div>
+        </div>
+
+        {/* Definition Card */}
+        <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-lg p-4">
+          <h4 className="font-bold text-amber-700 dark:text-amber-400 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.definition')}
+          </h4>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {t('eigen.def')}
+          </p>
         </div>
       </div>
     </div>

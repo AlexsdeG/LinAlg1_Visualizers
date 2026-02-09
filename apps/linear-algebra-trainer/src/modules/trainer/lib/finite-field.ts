@@ -62,3 +62,17 @@ export const modDivDetails = (a: number, b: number, m: number): { result: number
 
   return { result, steps };
 };
+
+/**
+ * Checks if number is Prime.
+ * Simple implementation sufficient for small inputs used in this app (<100).
+ */
+export const isPrime = (n: number): boolean => {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+  return true;
+};

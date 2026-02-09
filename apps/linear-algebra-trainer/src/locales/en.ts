@@ -55,4 +55,43 @@ export const en = {
   'ff.error.noInverse': 'No inverse exists (GCD ≠ 1)',
   'ff.error.divZero': 'Cannot divide by zero',
   'ff.placeholder.mod': 'e.g. 7',
+
+  // Learning Resources - Titles
+  'learn.analysis': 'Analysis',
+  'learn.calculation': 'Calculation',
+  'learn.definition': 'Definition',
+  'learn.howItWorks': 'How It Works',
+  
+  // Gauss Learning
+  'learn.gauss.def.title': 'Gaussian Elimination',
+  'learn.gauss.def.body': 'An algorithm to solve linear systems. The goal is to reach the Identity Matrix, where the main diagonal is all 1s and other elements are 0.',
+  'learn.gauss.calc.swap': 'Interchange two rows.',
+  'learn.gauss.calc.scale': 'Multiply a row by a non-zero scalar.',
+  'learn.gauss.calc.add': 'Add a multiple of one row to another.',
+  'learn.gauss.analysis.size': 'Matrix Size',
+  'learn.gauss.analysis.pivots': 'Correct Pivot Columns',
+  'learn.gauss.analysis.status': 'Status',
+  'learn.gauss.analysis.solved': 'Solved',
+  'learn.gauss.analysis.wip': 'In Progress',
+  'learn.gauss.how.step1.title': 'Target the Diagonal',
+  'learn.gauss.how.step1.desc': 'Try to get a 1 in the diagonal position (e.g. Row 1, Col 1).',
+  'learn.gauss.how.step2.title': 'Eliminate Below',
+  'learn.gauss.how.step2.desc': 'Use the diagonal 1 to make all numbers below it 0 (using Row Addition).',
+  'learn.gauss.how.step3.title': 'Repeat',
+  'learn.gauss.how.step3.desc': 'Move to the next diagonal (Row 2, Col 2) and repeat until solved.',
+
+  // Finite Field Learning
+  'learn.ff.def.title': 'Modular Arithmetic',
+  'learn.ff.def.body': 'Arithmetic in a system where numbers "wrap around" a modulus p. The set of integers is {0, 1, ..., p-1}.',
+  'learn.ff.analysis.prime': 'is Prime',
+  'learn.ff.analysis.comp': 'is Composite',
+  'learn.ff.analysis.field': 'This forms a Field (ℤ/pℤ). Every non-zero element has a multiplicative inverse.',
+  'learn.ff.analysis.ring': 'This forms a Commutative Ring. Zero divisors exist, so not all elements have inverses.',
+  'learn.ff.calc.vars': 'Variables',
+  'learn.ff.how.step1.title': 'Choose Modulo',
+  'learn.ff.how.step1.desc': 'Select a modulus P. If P is prime, you can divide by any non-zero number.',
+  'learn.ff.how.step2.title': 'Operate',
+  'learn.ff.how.step2.desc': 'Perform +, -, *, / normally, then take the remainder (mod P).',
+  'learn.ff.how.step3.title': 'Visualise',
+  'learn.ff.how.step3.desc': 'Check the grid to see patterns. Inverses are found where the row/col product is 1 (green).',
 };

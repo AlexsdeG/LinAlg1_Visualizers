@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.7] - 2026-02-09
+### Added
+- **Component Refactor**: Refactored "Analysis", "Calculation", and "Definition" cards into reusable components across all views (`EigenView`, `BasisChangeView`, `TransformationView`).
+- **New Feature**: Added "How It Works" card to explain the interactive visualizations step-by-step.
+- **Internationalization**: Added complete German (de) and English (en) translations for the new "How it works" flows and updated card texts.
+
+## [0.0.6] - 2024-05-23
+### Added
+- Added educational cards (Analysis, Calculation, Definition) to all three main tabs.
+- Expanded translations to support detailed math explanations.
+- Improved visual layout by grouping visualization and educational content.
+- `TransformationView`: Added determinant formulas and area analysis.
+- `EigenView`: Added matrix-vector multiplication display.
+- `BasisChangeView`: Added basis decomposition context.
+
 ## [0.0.5] - 2024-05-23
 ### Added
 - Phase 5 Implementation: Integration and Polish.

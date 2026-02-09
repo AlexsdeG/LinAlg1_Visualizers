@@ -19,7 +19,46 @@ export const resources = {
       "basis.standardCoords": "Standard Coordinates",
       "basis.basisCoords": "Basis Coordinates",
       "basis.dragInstruction": "Drag the point P or the basis vectors (î, ĵ)",
-      "basis.singularError": "Basis vectors are collinear (Singular). Cannot decompose."
+      "basis.singularError": "Basis vectors are collinear (Singular). Cannot decompose.",
+      
+      "education.titles.definition": "Definition",
+      "education.titles.calculation": "Calculation",
+      "education.titles.analysis": "Analysis",
+      "education.titles.howItWorks": "How it works",
+
+      "transform.def": "The matrix columns represent where the basis vectors î (1,0) and ĵ (0,1) land. The determinant is the factor by which area is scaled.",
+      "transform.calc.title": "Determinant Formula",
+      "transform.analysis.singular": "The matrix is singular (Det = 0). The 2D grid collapses into a lower dimension (line or point). Information is lost.",
+      "transform.analysis.regular": "The grid area is scaled by a factor of {{det}}. The orientation is {{orientation}}.",
+      "transform.orientation.preserved": "preserved (Counter-clockwise basis)",
+      "transform.orientation.flipped": "flipped (Clockwise basis, like a mirror)",
+      "transform.how.step1": "The grid starts as standard squares.",
+      "transform.how.step1.high": "Visualize Input Space",
+      "transform.how.step2": "Drag the green (î) and red (ĵ) vectors.",
+      "transform.how.step2.high": "Apply Matrix",
+      "transform.how.step3": "See how the whole grid warps to follow them.",
+      "transform.how.step3.high": "Linear Transformation",
+
+      "eigen.def": "An eigenvector is a vector whose direction remains unchanged after the transformation. It is only stretched by a factor called the Eigenvalue (λ).",
+      "eigen.calc.title": "Matrix-Vector Product",
+      "eigen.analysis.aligned": "🎉 The vectors are collinear! You found an eigenvector. The stretching factor (Eigenvalue) is λ ≈ {{lambda}}.",
+      "eigen.analysis.notAligned": "The vectors point in different directions. The linear transformation is rotating this specific vector.",
+      "eigen.how.step1": "Move the Blue Point around the circle.",
+      "eigen.how.step1.high": "Explore Vectors",
+      "eigen.how.step2": "The Red Arrow shows where the matrix sends it.",
+      "eigen.how.step2.high": "Observe Output",
+      "eigen.how.step3": "Find where Blue and Red line up!",
+      "eigen.how.step3.high": "Match Direction",
+
+      "basis.def": "A single point P in space can be described by different coordinate systems. 'Change of Basis' translates the address from one grid to another.",
+      "basis.calc.title": "Basis Decomposition",
+      "basis.analysis": "To reach Point P using the red basis vectors, walk {{c1}} steps along b₁ and {{c2}} steps along b₂.",
+      "basis.how.step1": "The Point P stays in one place.",
+      "basis.how.step1.high": "Fix the Point",
+      "basis.how.step2": "Change the Red Grid (Basis) by dragging vectors.",
+      "basis.how.step2.high": "Warp the World",
+      "basis.how.step3": "See how P's address (coordinates) changes!",
+      "basis.how.step3.high": "New Coordinates"
     }
   },
   de: {
@@ -42,7 +81,46 @@ export const resources = {
       "basis.standardCoords": "Standard-Koordinaten",
       "basis.basisCoords": "Basis-Koordinaten",
       "basis.dragInstruction": "Ziehen Sie den Punkt P oder die Basisvektoren (î, ĵ)",
-      "basis.singularError": "Basisvektoren sind kollinear (Singulär). Keine Zerlegung möglich."
+      "basis.singularError": "Basisvektoren sind kollinear (Singulär). Keine Zerlegung möglich.",
+
+      "education.titles.definition": "Definition",
+      "education.titles.calculation": "Berechnung",
+      "education.titles.analysis": "Analyse",
+      "education.titles.howItWorks": "Wie es funktioniert",
+
+      "transform.def": "Die Matrixspalten zeigen, wo die Basisvektoren î (1,0) und ĵ (0,1) landen. Die Determinante ist der Flächenskalierungsfaktor.",
+      "transform.calc.title": "Determinantenformel",
+      "transform.analysis.singular": "Die Matrix ist singulär (Det = 0). Das 2D-Gitter kollabiert in eine niedrigere Dimension (Linie oder Punkt).",
+      "transform.analysis.regular": "Die Gitterfläche wird um den Faktor {{det}} skaliert. Die Orientierung ist {{orientation}}.",
+      "transform.orientation.preserved": "erhalten (Gegen den Uhrzeigersinn)",
+      "transform.orientation.flipped": "gespiegelt (Im Uhrzeigersinn)",
+      "transform.how.step1": "Das Gitter startet als normale Quadrate.",
+      "transform.how.step1.high": "Visualisiere Input",
+      "transform.how.step2": "Ziehe die grünen (î) und roten (ĵ) Vektoren.",
+      "transform.how.step2.high": "Wende Matrix an",
+      "transform.how.step3": "Sieh wie das Gitter folgt.",
+      "transform.how.step3.high": "Lineare Transformation",
+
+      "eigen.def": "Ein Eigenvektor behält seine Richtung nach der Transformation bei. Er wird nur um den Eigenwert (λ) gestreckt.",
+      "eigen.calc.title": "Matrix-Vektor-Produkt",
+      "eigen.analysis.aligned": "🎉 Vektoren sind kollinear! Eigenvektor gefunden. Der Streckungsfaktor (Eigenwert) ist λ ≈ {{lambda}}.",
+      "eigen.analysis.notAligned": "Die Vektoren zeigen in verschiedene Richtungen. Die Transformation rotiert diesen Vektor.",
+      "eigen.how.step1": "Bewege den blauen Punkt im Kreis.",
+      "eigen.how.step1.high": "Erkunde Vektoren",
+      "eigen.how.step2": "Der rote Pfeil zeigt das Ziel.",
+      "eigen.how.step2.high": "Beobachte Output",
+      "eigen.how.step3": "Finde wo Blau und Rot übereinstimmen!",
+      "eigen.how.step3.high": "Richtung finden",
+
+      "basis.def": "Ein Punkt P kann durch verschiedene Koordinatensysteme beschreiben werden. 'Basiswechsel' übersetzt die Adresse von einem Gitter ins andere.",
+      "basis.calc.title": "Basiszerlegung",
+      "basis.analysis": "Um Punkt P mit den roten Basisvektoren zu erreichen: Gehe {{c1}} Schritte entlang b₁ und {{c2}} Schritte entlang b₂.",
+      "basis.how.step1": "Der Punkt P bleibt fest stehen.",
+      "basis.how.step1.high": "Punkt fixieren",
+      "basis.how.step2": "Verändere das rote Gitter (Basis).",
+      "basis.how.step2.high": "Gitter verzerren",
+      "basis.how.step3": "Sieh wie sich Ps Adresse ändert!",
+      "basis.how.step3.high": "Neue Koordinaten"
     }
   }
 };

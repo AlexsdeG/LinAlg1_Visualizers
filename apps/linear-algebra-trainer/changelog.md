@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.6] - 2026-02-09
+### Added
+- **Component Refactor**: Refactored "Analysis", "Calculation", and "Definition" cards into reusable components.
+- **New Feature**: Added "How It Works" card to Finite Field and Gauss Trainer views.
+- **Internationalization**: Complete German (de) and English (en) translations for all new card content.
+
+## [0.0.5] - 2024-05-23
+### Added
+- **Learning Resources**: Added "Analysis", "Calculation", and "Definition" cards to both Trainer modules.
+  - **Gauss Trainer**: Added real-time pivot analysis and row operation formulas.
+  - **Finite Field**: Added Modulus analysis (Prime vs Composite identification) and dynamic formula previews.
+- **Library Updates**: Added `isPrime` utility to finite-field logic.
+
 ## [0.0.4] - 2024-05-23
 ### Added
 - **Phase 4 Implementation**: Integration and Navigation.

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Mafs, Coordinates, Vector, MovablePoint, Text, Theme, Line } from 'mafs';
 import { useTranslation } from 'react-i18next';
-import { Matrix2D, Vector2, inverse2x2, applyMatrix, matrixToCss } from '../utils';
+import { Matrix2D, Vector2, inverse2x2, applyMatrix, matrixToCss, getDeterminant } from '../utils';
 
 interface BasisChangeViewProps {
   matrix: Matrix2D;
@@ -44,9 +44,9 @@ export const BasisChangeView: React.FC<BasisChangeViewProps> = ({ matrix, setMat
   const isSingular = !inverse;
 
   return (
-    <div className="flex flex-col h-full space-y-4">
+    <div className="flex flex-col space-y-6">
       
-      {/* Coordinate Display Cards */}
+      {/* Coordinate Display Cards (Top) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Standard Coordinates Card */}
         <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
@@ -74,7 +74,7 @@ export const BasisChangeView: React.FC<BasisChangeViewProps> = ({ matrix, setMat
       </div>
 
       {/* Visualization */}
-      <div className="w-full h-[500px] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-gray-50 dark:bg-black relative">
+      <div className="w-full h-[500px] border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-gray-50 dark:bg-black relative shadow-inner">
         <Mafs
           zoom={{ min: 0.1, max: 5 }}
           pan={true}
@@ -137,12 +137,12 @@ export const BasisChangeView: React.FC<BasisChangeViewProps> = ({ matrix, setMat
           {/* Basis Vector b1 (Control) */}
           <Vector tail={[0, 0]} tip={[matrix.ix, matrix.iy]} color={Theme.red} weight={3} />
           <MovablePoint point={[matrix.ix, matrix.iy]} onMove={handleIMove} color={Theme.red} />
-          <Text x={matrix.ix} y={matrix.iy} attach="ne" color={Theme.red}>b₁</Text>
+          <Text x={matrix.ix} y={matrix.iy} attach="ne" color={Theme.red} svgTextProps={{fontWeight: 'bold'}}>b₁</Text>
 
           {/* Basis Vector b2 (Control) */}
           <Vector tail={[0, 0]} tip={[matrix.jx, matrix.jy]} color={Theme.red} weight={3} />
           <MovablePoint point={[matrix.jx, matrix.jy]} onMove={handleJMove} color={Theme.red} />
-          <Text x={matrix.jx} y={matrix.jy} attach="ne" color={Theme.red}>b₂</Text>
+          <Text x={matrix.jx} y={matrix.jy} attach="ne" color={Theme.red} svgTextProps={{fontWeight: 'bold'}}>b₂</Text>
 
           {/* Target Point P (Black/White) */}
           <MovablePoint
@@ -171,6 +171,48 @@ export const BasisChangeView: React.FC<BasisChangeViewProps> = ({ matrix, setMat
 
         <div className="absolute bottom-4 left-4 bg-white/80 dark:bg-gray-900/80 p-2 rounded text-xs text-gray-500 pointer-events-none">
            {t('basis.dragInstruction')}
+        </div>
+      </div>
+
+       {/* Educational Cards */}
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Analysis Card */}
+        <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-lg p-4">
+          <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.analysis')}
+          </h4>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {basisCoords ? t('basis.analysis', {
+              c1: basisCoords.x.toFixed(1),
+              c2: basisCoords.y.toFixed(1)
+            }) : "N/A"}
+          </p>
+        </div>
+
+        {/* Calculation Card */}
+        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+          <h4 className="font-bold text-gray-600 dark:text-gray-400 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.calculation')}
+          </h4>
+          <p className="text-xs text-gray-500 mb-1">{t('basis.calc.title')}</p>
+          <div className="font-mono text-sm bg-white dark:bg-black p-2 rounded border border-gray-100 dark:border-gray-800 overflow-x-auto text-center">
+             [v]<sub>B</sub> = B<sup>-1</sup> · [v]<sub>E</sub>
+          </div>
+          {inverse && (
+             <div className="font-mono text-xs mt-2 text-center text-gray-500">
+                det(B) = {getDeterminant(matrix).toFixed(1)}
+             </div>
+          )}
+        </div>
+
+        {/* Definition Card */}
+        <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-lg p-4">
+          <h4 className="font-bold text-amber-700 dark:text-amber-400 mb-2 uppercase text-xs tracking-wider">
+            {t('education.titles.definition')}
+          </h4>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {t('basis.def')}
+          </p>
         </div>
       </div>
     </div>

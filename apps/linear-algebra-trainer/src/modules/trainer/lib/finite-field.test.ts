@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { safeMod, extendedGCD, modInverse, modAdd, modSub, modMul, modDivDetails } from './finite-field';
+import { safeMod, extendedGCD, modInverse, modAdd, modSub, modMul, modDivDetails, isPrime } from './finite-field';
 
 describe('finite-field utils', () => {
   it('safeMod handles negative numbers correctly', () => {
@@ -47,5 +47,15 @@ describe('finite-field utils', () => {
     const res = modDivDetails(1, 2, 4);
     expect(res.result).toBeNull();
     expect(res.error).toBe('ff.error.noInverse');
+  });
+
+  it('isPrime correctly identifies primes', () => {
+    expect(isPrime(2)).toBe(true);
+    expect(isPrime(3)).toBe(true);
+    expect(isPrime(4)).toBe(false);
+    expect(isPrime(7)).toBe(true);
+    expect(isPrime(15)).toBe(false);
+    expect(isPrime(17)).toBe(true);
+    expect(isPrime(1)).toBe(false);
   });
 });
