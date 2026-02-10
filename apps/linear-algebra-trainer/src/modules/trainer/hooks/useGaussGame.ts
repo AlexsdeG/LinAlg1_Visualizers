@@ -1,29 +1,34 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Matrix, RowOperation } from '../types';
-import { generateSolvableSystem, applyRowOp, isIdentity } from '../lib/matrix-generator';
+import { generateSolvableSystem, applyRowOp, checkIsRREF } from '../lib/matrix-generator';
 
-export const useGaussGame = (size: number = 3) => {
+export const useGaussGame = (initialSize: number = 3) => {
+  // Game Settings
+  const [size, setSize] = useState<number>(initialSize);
+  const [difficulty, setDifficulty] = useState<number>(1);
+
   // History stack
   const [history, setHistory] = useState<Matrix[]>([]);
   const [pointer, setPointer] = useState<number>(-1);
 
   // Initialize game
   const initGame = useCallback(() => {
-    const m = generateSolvableSystem(size);
+    const m = generateSolvableSystem(size, difficulty);
     setHistory([m]);
     setPointer(0);
-  }, [size]);
+  }, [size, difficulty]);
 
-  // Initial load
+  // Initial load or when settings change
   useEffect(() => {
-    if (history.length === 0) {
-      initGame();
-    }
-  }, [history.length, initGame]);
+    initGame();
+  }, [initGame]);
 
   // Derived state
   const currentMatrix = pointer >= 0 && history[pointer] ? history[pointer] : [];
-  const isSolved = currentMatrix.length > 0 && isIdentity(currentMatrix);
+
+  // Solved check using RREF
+  const isSolved = currentMatrix.length > 0 && checkIsRREF(currentMatrix);
+
   const canUndo = pointer > 0;
   const canRedo = pointer < history.length - 1;
 
@@ -32,12 +37,12 @@ export const useGaussGame = (size: number = 3) => {
     if (isSolved || currentMatrix.length === 0) return;
 
     const newMatrix = applyRowOp(currentMatrix, op);
-    
+
     // Check if effective (simple check, normally we trust the user means to do it)
     // We add to history
     const newHistory = history.slice(0, pointer + 1);
     newHistory.push(newMatrix);
-    
+
     setHistory(newHistory);
     setPointer(newHistory.length - 1);
   };
@@ -57,6 +62,10 @@ export const useGaussGame = (size: number = 3) => {
   return {
     matrix: currentMatrix,
     isSolved,
+    size,
+    setSize,
+    difficulty,
+    setDifficulty,
     applyOp,
     undo,
     redo,
